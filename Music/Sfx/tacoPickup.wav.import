@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/tacoPickup.wav-b09c1d86540aa7c2566aef964f9d8a70.sample"
+
+[deps]
+
+source_file="res://Music/Sfx/tacoPickup.wav"
+dest_files=[ "res://.import/tacoPickup.wav-b09c1d86540aa7c2566aef964f9d8a70.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

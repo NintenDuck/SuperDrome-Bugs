@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Sprites/UI/ui_life_full.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/UI/ui_life_empty.png" type="Texture" id=2]
+[ext_resource path="res://UI/Health_Meter.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "blink"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("lifeFull:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=2]
+tracks/0/type = "value"
+tracks/0/path = NodePath("lifeFull:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false, true, false, true, false, true ]
+}
+
+[node name="Health_Meter" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="animation" type="AnimationPlayer" parent="."]
+anims/blink = SubResource( 1 )
+anims/healthChanged = SubResource( 2 )
+
+[node name="lifeFull" type="TextureRect" parent="."]
+anchor_left = 0.00657895
+anchor_top = 0.00657895
+anchor_right = 0.230263
+anchor_bottom = 0.0592105
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": true,
+"_editor_description_": ""
+}
+
+[node name="lifeEmpty" type="TextureRect" parent="."]
+anchor_left = 0.00657895
+anchor_top = 0.00657895
+anchor_right = 0.230263
+anchor_bottom = 0.0592105
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": true
+}

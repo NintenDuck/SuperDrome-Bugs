@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/themeDefault.tres" type="Theme" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "animate"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Margin Container/Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true, false, true, false ]
+}
+
+[node name="checkPoint" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin Container" type="MarginContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -64.0001
+margin_top = -36.0
+margin_bottom = 20.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Margin Container"]
+margin_top = 16.0
+margin_right = 64.0
+margin_bottom = 40.0
+text = "Checkpoint"
+
+[node name="checkPointAnimation" type="AnimationPlayer" parent="."]
+anims/animate = SubResource( 1 )

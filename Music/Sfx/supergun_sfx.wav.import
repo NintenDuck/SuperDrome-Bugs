@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/supergun_sfx.wav-f999e6ab9da156020dbc1494be6a7a8f.sample"
+
+[deps]
+
+source_file="res://Music/Sfx/supergun_sfx.wav"
+dest_files=[ "res://.import/supergun_sfx.wav-f999e6ab9da156020dbc1494be6a7a8f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

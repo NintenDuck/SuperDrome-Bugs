@@ -1,0 +1,100 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/Player/bullet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/Player/playerBullet.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Player/PlayerBullet.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 2, 2 )
+
+[sub_resource type="Animation" id=2]
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.05 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ true ],
+"method": "set_process"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "shootSuperGun"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 5 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.05 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ true ],
+"method": "set_process"
+} ]
+}
+
+[node name="PlayerBullet" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 2 )
+hframes = 6
+frame = 1
+
+[node name="VisibilityNotifier2D" parent="." index="1"]
+position = Vector2( 0.5, -2.38419e-07 )
+scale = Vector2( 0.45, 0.4 )
+
+[node name="HitBox" parent="." index="2"]
+position = Vector2( 1, 0 )
+collision_mask = 10
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource( 1 )
+
+[node name="animation" type="AnimationPlayer" parent="." index="3"]
+autoplay = "shoot"
+anims/shoot = SubResource( 2 )
+anims/shootSuperGun = SubResource( 3 )
+
+[node name="lifeTime" type="Timer" parent="." index="4"]
+wait_time = 0.25
+one_shot = true
+
+[connection signal="timeout" from="lifeTime" to="." method="_on_lifeTime_timeout"]
+
+[editable path="HitBox"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/boss_hit_ground.wav-41ebfe6fe6cec964f2c0bd0977f4deeb.sample"
+
+[deps]
+
+source_file="res://Music/Sfx/boss_hit_ground.wav"
+dest_files=[ "res://.import/boss_hit_ground.wav-41ebfe6fe6cec964f2c0bd0977f4deeb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

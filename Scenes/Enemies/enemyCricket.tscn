@@ -1,0 +1,151 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scenes/Enemies/enemyParent.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/Enemies/enemyCricket.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Enemies/enemyCricket.gd" type="Script" id=3]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform vec4 hit_color : hint_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float hit_strength : hint_range(0.0,1.0) = 0.0;
+
+void fragment() {
+	vec4 custom_color = texture(TEXTURE, UV);
+	custom_color.rgb = mix(custom_color.rgb, hit_color.rgb, hit_strength);
+	COLOR = custom_color;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+shader = SubResource( 1 )
+shader_param/hit_color = Color( 1, 0, 0, 1 )
+shader_param/hit_strength = 0.0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 1, 2 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "fall"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 3, 2 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 3, 2 )
+
+[node name="enemyCricket" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+GRAV = 200
+currentDirection = -1
+waitingTimerWaitTime = 2.0
+JUMPFORCE = 80
+VERTICAL_VELOCITY = 30
+
+[node name="Sprite" parent="." index="0"]
+material = SubResource( 2 )
+position = Vector2( 0, -5 )
+texture = ExtResource( 2 )
+hframes = 3
+
+[node name="collision" parent="." index="1"]
+position = Vector2( 0, -2 )
+shape = SubResource( 3 )
+
+[node name="AnimationPlayer" parent="." index="2"]
+autoplay = "idle"
+anims/fall = SubResource( 4 )
+anims/idle = SubResource( 5 )
+anims/jump = SubResource( 6 )
+
+[node name="HurtBox" parent="." index="4"]
+visible = false
+position = Vector2( 0, -2 )
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource( 7 )
+
+[node name="EnemyStats" parent="." index="5"]
+max_health = 3
+
+[node name="HitBox" parent="." index="6"]
+visible = false
+position = Vector2( 0, -2 )
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource( 8 )
+
+[node name="waitingTimer" type="Timer" parent="." index="7"]
+one_shot = true
+
+[node name="wallLeft" type="RayCast2D" parent="." index="8"]
+visible = false
+position = Vector2( 0, -2 )
+enabled = true
+cast_to = Vector2( -10, 0 )
+collision_mask = 2
+
+[node name="wallRight" type="RayCast2D" parent="." index="9"]
+visible = false
+position = Vector2( 0, -2 )
+enabled = true
+cast_to = Vector2( 10, 0 )
+collision_mask = 2
+
+[node name="floorLeft" type="RayCast2D" parent="." index="10"]
+position = Vector2( -28, -13 )
+enabled = true
+cast_to = Vector2( 0, 25 )
+collision_mask = 2
+
+[node name="floorRight" type="RayCast2D" parent="." index="11"]
+position = Vector2( 28, -13 )
+enabled = true
+cast_to = Vector2( 0, 25 )
+collision_mask = 2
+
+[editable path="HurtBox"]
+[editable path="HitBox"]

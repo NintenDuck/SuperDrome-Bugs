@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/Utils/HurtBox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Enemies/enemyParent.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Enemies/EnemyStats.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Utils/HitBox.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform vec4 hit_color : hint_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float hit_strength : hint_range(0.0,1.0) = 0.0;
+
+void fragment() {
+	vec4 custom_color = texture(TEXTURE, UV);
+	custom_color.rgb = mix(custom_color.rgb, hit_color.rgb, hit_strength);
+	COLOR = custom_color;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+shader = SubResource( 1 )
+shader_param/hit_color = Color( 1, 0, 0, 1 )
+shader_param/hit_strength = 0.0
+
+[sub_resource type="Animation" id=3]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material:shader_param/hit_strength")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1.0, 0.0 ]
+}
+
+[node name="enemyParent" type="KinematicBody2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 2 )
+
+[node name="collision" type="CollisionShape2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="BlinkAnimator" type="AnimationPlayer" parent="."]
+anims/blink = SubResource( 3 )
+
+[node name="HurtBox" parent="." instance=ExtResource( 1 )]
+collision_layer = 8
+
+[node name="EnemyStats" parent="." instance=ExtResource( 3 )]
+
+[node name="HitBox" parent="." instance=ExtResource( 4 )]
+collision_mask = 4
+
+[connection signal="hit" from="HurtBox" to="." method="_on_HurtBox_hit"]
+[connection signal="enemy_died" from="EnemyStats" to="." method="_on_EnemyStats_enemy_died"]
+
+[editable path="HurtBox"]
+[editable path="HitBox"]

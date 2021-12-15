@@ -1,0 +1,133 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scenes/Enemies/enemyParent.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/Enemies/enemyCucaracha.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Enemies/enemyCucaracha.gd" type="Script" id=3]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform vec4 hit_color : hint_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float hit_strength : hint_range(0.0,1.0) = 0.0;
+
+void fragment() {
+	vec4 custom_color = texture(TEXTURE, UV);
+	custom_color.rgb = mix(custom_color.rgb, hit_color.rgb, hit_strength);
+	COLOR = custom_color;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+shader = SubResource( 1 )
+shader_param/hit_color = Color( 1, 0, 0, 1 )
+shader_param/hit_strength = 0.0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 3, 5 )
+
+[sub_resource type="Animation" id=4]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 2, 4 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 2, 5 )
+
+[node name="enemyCucaracha" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+MAX_SPEED = 15
+WALKING_DIRECTION = -1
+
+[node name="Sprite" parent="." index="0"]
+material = SubResource( 2 )
+position = Vector2( 0, -6 )
+texture = ExtResource( 2 )
+hframes = 4
+
+[node name="collision" parent="." index="1"]
+visible = false
+position = Vector2( 0, -5 )
+shape = SubResource( 3 )
+
+[node name="AnimationPlayer" parent="." index="2"]
+autoplay = "walk"
+anims/idle = SubResource( 4 )
+anims/walk = SubResource( 5 )
+
+[node name="HurtBox" parent="." index="4"]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 0, -4 )
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource( 6 )
+
+[node name="wallLeft" type="RayCast2D" parent="." index="5"]
+visible = false
+position = Vector2( 0, -3 )
+enabled = true
+cast_to = Vector2( -5, 0 )
+collision_mask = 2
+
+[node name="wallRight" type="RayCast2D" parent="." index="6"]
+visible = false
+position = Vector2( 0, -3 )
+enabled = true
+cast_to = Vector2( 5, 0 )
+collision_mask = 2
+
+[node name="floorLeft" type="RayCast2D" parent="." index="7"]
+visible = false
+position = Vector2( -3, 0 )
+enabled = true
+cast_to = Vector2( 0, 2 )
+collision_mask = 2
+
+[node name="floorRight" type="RayCast2D" parent="." index="8"]
+visible = false
+position = Vector2( 3, 0 )
+enabled = true
+cast_to = Vector2( 0, 2 )
+collision_mask = 2
+
+[node name="EnemyStats" parent="." index="9"]
+max_health = 5
+
+[node name="HitBox" parent="." index="10"]
+visible = false
+position = Vector2( 0, -5 )
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource( 7 )
+
+[editable path="HurtBox"]
+[editable path="HitBox"]

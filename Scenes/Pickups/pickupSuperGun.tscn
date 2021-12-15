@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Pickups/pickupParent.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/Pickups/playerPickupFuel.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 6 )
+
+[node name="pickupSuperGun" instance=ExtResource( 1 )]
+Current_Pickup = 2
+
+[node name="colision" parent="." index="0"]
+position = Vector2( 0, -6 )
+shape = SubResource( 1 )
+
+[node name="Sprite" parent="." index="1"]
+position = Vector2( 1, -6 )
+texture = ExtResource( 2 )

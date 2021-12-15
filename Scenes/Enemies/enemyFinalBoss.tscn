@@ -1,0 +1,309 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Scenes/Enemies/enemyParent.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/Enemies/enemyBoss_Final.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Enemies/enemyFinalBoss.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/Enemies/enemySlimey.png" type="Texture" id=4]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform vec4 hit_color : hint_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float hit_strength : hint_range(0.0,1.0) = 0.0;
+
+void fragment() {
+	vec4 custom_color = texture(TEXTURE, UV);
+	custom_color.rgb = mix(custom_color.rgb, hit_color.rgb, hit_strength);
+	COLOR = custom_color;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+shader = SubResource( 1 )
+shader_param/hit_color = Color( 1, 0, 0, 1 )
+shader_param/hit_strength = 0.0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 11, 10 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "charge"
+length = 0.1
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 15, 16 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "cutscene_1"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.6, 3.6, 4.5, 6.6, 8.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 25, 26, 25, 27, 23, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5.1, 6.2, 6.6, 7.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "play_boss_music"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 23, 24 ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 17, 18, 19, 20 ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 1.2, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1, 0 ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 29 ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 28 ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 2.7
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.7, 0.8, 0.9, 1, 1.1, 1.7, 1.75, 1.8, 1.85, 1.9, 1.95, 2.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 12, 13, 12, 13, 14 ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 0.65
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 3, 4, 5, 6 ]
+}
+
+[sub_resource type="Animation" id=13]
+length = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 21, 22 ]
+}
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 9, 11 )
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 8, 10 )
+
+[node name="enemyFinalBoss" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+jumpVelocity = 20
+
+[node name="Sprite" parent="." index="0"]
+material = SubResource( 2 )
+position = Vector2( 0, -20 )
+texture = ExtResource( 2 )
+flip_h = true
+hframes = 30
+frame = 25
+
+[node name="collision" parent="." index="1"]
+visible = false
+position = Vector2( 0, -10 )
+shape = SubResource( 3 )
+
+[node name="AnimationPlayer" parent="." index="2"]
+autoplay = "idle"
+anims/charge = SubResource( 4 )
+anims/cutscene_1 = SubResource( 5 )
+anims/death = SubResource( 6 )
+anims/dizzy = SubResource( 7 )
+anims/idle = SubResource( 8 )
+anims/jump = SubResource( 9 )
+anims/prep_jump = SubResource( 10 )
+anims/prep_to_charge = SubResource( 11 )
+anims/punch = SubResource( 12 )
+anims/wake_up = SubResource( 13 )
+
+[node name="HurtBox" parent="." index="4"]
+position = Vector2( 0, -19 )
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource( 14 )
+
+[node name="EnemyStats" parent="." index="5"]
+max_health = 65
+
+[node name="HitBox" parent="." index="6"]
+visible = false
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2( 0, -10 )
+shape = SubResource( 15 )
+
+[node name="IdleTimer" type="Timer" parent="." index="7"]
+wait_time = 1.5
+one_shot = true
+
+[node name="fallTimer" type="Timer" parent="." index="8"]
+wait_time = 0.5
+one_shot = true
+
+[node name="Jump_to_player_Positions" type="Node2D" parent="." index="9"]
+visible = false
+
+[node name="InitPos" type="Position2D" parent="Jump_to_player_Positions" index="0"]
+position = Vector2( 28, -28 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Jump_to_player_Positions/InitPos" index="0"]
+position = Vector2( 0, -6 )
+texture = ExtResource( 4 )
+hframes = 3
+
+[node name="FinalPos" type="Position2D" parent="Jump_to_player_Positions" index="1"]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite2" type="Sprite" parent="Jump_to_player_Positions/FinalPos" index="0"]
+position = Vector2( 0, -6 )
+texture = ExtResource( 4 )
+hframes = 3
+
+[node name="Raycasts" type="Node2D" parent="." index="10"]
+
+[node name="raycastCeiling" type="RayCast2D" parent="Raycasts" index="0"]
+enabled = true
+cast_to = Vector2( 0, -35 )
+collision_mask = 2
+
+[node name="raycastFloor" type="RayCast2D" parent="Raycasts" index="1"]
+enabled = true
+cast_to = Vector2( 0, 1 )
+collision_mask = 2
+
+[editable path="HurtBox"]
+[editable path="HitBox"]

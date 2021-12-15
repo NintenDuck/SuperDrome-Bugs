@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/Enemies/enemyParent.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/Enemies/enemyRock.png" type="Texture" id=2]
+
+[sub_resource type="Shader" id=5]
+code = "shader_type canvas_item;
+
+uniform vec4 hit_color : hint_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float hit_strength : hint_range(0.0,1.0) = 0.0;
+
+void fragment() {
+	vec4 custom_color = texture(TEXTURE, UV);
+	custom_color.rgb = mix(custom_color.rgb, hit_color.rgb, hit_strength);
+	COLOR = custom_color;
+}"
+
+[sub_resource type="ShaderMaterial" id=6]
+resource_local_to_scene = true
+shader = SubResource( 5 )
+shader_param/hit_color = Color( 1, 0, 0, 1 )
+shader_param/hit_strength = 0.0
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 7, 8 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 8, 7 )
+
+[node name="enemyRock" instance=ExtResource( 1 )]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite" parent="." index="0"]
+material = SubResource( 6 )
+texture = ExtResource( 2 )
+
+[node name="collision" parent="." index="1"]
+visible = false
+shape = SubResource( 7 )
+
+[node name="HurtBox" parent="." index="4"]
+visible = false
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource( 8 )
+
+[node name="EnemyStats" parent="." index="5"]
+max_health = 8
+
+[editable path="HurtBox"]
+[editable path="HitBox"]

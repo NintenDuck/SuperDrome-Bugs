@@ -1,0 +1,707 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://Sprites/Menu/logo.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Menu/tileHouse.png" type="Texture" id=2]
+[ext_resource path="res://UI/themeDefault.tres" type="Theme" id=3]
+[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Tilesets/tileInvinsible.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Enemies/enemyRock.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/Menu/controllerButtons.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Menu/keyboardKeys_arrow_up.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Menu/keyboardKeys_arrow.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Menu/keyboardKeys_L.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Menu/keyboardKeys_K.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Menu/keyboardKeys_arrow_down.png" type="Texture" id=12]
+[ext_resource path="res://Levels/Menu_Principal.gd" type="Script" id=13]
+[ext_resource path="res://UI/UI.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Sprites/Enemies/enemyRock.png" type="Texture" id=15]
+[ext_resource path="res://Music/Sfx/steps.wav" type="AudioStream" id=16]
+
+[sub_resource type="Animation" id=1]
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("arrow_up:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("arrow_right:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("arrow_down:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("arrow_left:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("button_y:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("button_x:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("button_b:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("button_a:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("key_k:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("key_l:frame")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("arrow_up:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.6, 3.1, 5.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.392157 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("arrow_left:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.6, 3.1, 5.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.392157 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("arrow_down:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.6, 3.1, 5.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.156863 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("button_y:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.6, 3.1, 5.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.156863 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("arrow_right:modulate")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 0.6, 3.1, 5.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.392157 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("button_x:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 0.6, 3.1, 5.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.392157 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("button_b:modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 0.6, 3.1, 5.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.156863 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("button_a:modulate")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 0.6, 3.1, 5.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.392157 ) ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("key_k:modulate")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0, 0.6, 3.1, 5.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.392157 ) ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("key_l:modulate")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 0.6, 3.1, 5.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.392157 ) ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("controllerSeparator:modulate")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0, 0.6, 1.6, 3.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.392157 ) ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("../MarginContainer/Copyright:modulate")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0, 0.6, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.235294 ) ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("../UI/Transition:material:shader_param/progress")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("label_w:modulate")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0, 3.1, 5.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.392157 ) ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("label_s:modulate")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0, 3.1, 5.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.392157 ) ]
+}
+tracks/25/type = "value"
+tracks/25/path = NodePath("label_a:modulate")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 0, 3.1, 5.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.392157 ) ]
+}
+tracks/26/type = "value"
+tracks/26/path = NodePath("label_d:modulate")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 0, 3.1, 5.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.392157 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "start_game"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("../UI/Transition:material:shader_param/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_game"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../transitionSound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 2, 10 )
+
+[sub_resource type="Shader" id=4]
+code = "shader_type canvas_item;
+
+uniform vec4 hit_color : hint_color = vec4(1.0, 1.0, 1.0, 1.0);
+uniform float hit_strength : hint_range(0.0,1.0) = 0.0;
+
+void fragment() {
+	vec4 custom_color = texture(TEXTURE, UV);
+	custom_color.rgb = mix(custom_color.rgb, hit_color.rgb, hit_strength);
+	COLOR = custom_color;
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+resource_local_to_scene = true
+shader = SubResource( 4 )
+shader_param/hit_color = Color( 1, 0, 0, 1 )
+shader_param/hit_strength = 0.0
+
+[sub_resource type="Shader" id=6]
+code = "shader_type canvas_item;
+
+uniform vec4 color : hint_color = vec4(1.0);
+uniform float width : hint_range(0, 10) = 1.0;
+uniform int pattern : hint_range(0, 2) = 0; // diamond, circle, square
+uniform bool inside = false;
+uniform bool add_margins = true; // only useful when inside is false
+
+void vertex() {
+	if (add_margins) {
+		VERTEX += (UV * 2.0 - 1.0) * width;
+	}
+}
+
+bool hasContraryNeighbour(vec2 uv, vec2 texture_pixel_size, sampler2D texture) {
+	for (float i = -ceil(width); i <= ceil(width); i++) {
+		float x = abs(i) > width ? width * sign(i) : i;
+		float offset;
+		
+		if (pattern == 0) {
+			offset = width - abs(x);
+		} else if (pattern == 1) {
+			offset = floor(sqrt(pow(width + 0.5, 2) - x * x));
+		} else if (pattern == 2) {
+			offset = width;
+		}
+		
+		for (float j = -ceil(offset); j <= ceil(offset); j++) {
+			float y = abs(j) > offset ? offset * sign(j) : j;
+			vec2 xy = uv + texture_pixel_size * vec2(x, y);
+			
+			if ((xy != clamp(xy, vec2(0.0), vec2(1.0)) || texture(texture, xy).a == 0.0) == inside) {
+				return true;
+			}
+		}
+	}
+	
+	return false;
+}
+
+void fragment() {
+	vec2 uv = UV;
+	
+	if (add_margins) {
+		vec2 texture_pixel_size = vec2(1.0) / (vec2(1.0) / TEXTURE_PIXEL_SIZE + vec2(width * 2.0));
+		
+		uv = (uv - texture_pixel_size * width) * TEXTURE_PIXEL_SIZE / texture_pixel_size;
+		
+		if (uv != clamp(uv, vec2(0.0), vec2(1.0))) {
+			COLOR.a = 0.0;
+		} else {
+			COLOR = texture(TEXTURE, uv);
+		}
+	} else {
+		COLOR = texture(TEXTURE, uv);
+	}
+	
+	if ((COLOR.a > 0.0) == inside && hasContraryNeighbour(uv, TEXTURE_PIXEL_SIZE, TEXTURE)) {
+		COLOR.rgb = inside ? mix(COLOR.rgb, color.rgb, color.a) : color.rgb;
+		COLOR.a += (1.0 - COLOR.a) * color.a;
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = SubResource( 6 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/width = 1.0
+shader_param/pattern = 0
+shader_param/inside = false
+shader_param/add_margins = true
+
+[sub_resource type="Animation" id=8]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Border:material:shader_param/color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0.32549, 0.32549, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="UI" parent="." instance=ExtResource( 14 )]
+
+[node name="SuperGun_Bar" parent="UI" index="1"]
+visible = false
+
+[node name="checkPoint" parent="UI" index="2"]
+visible = false
+
+[node name="Health_Meter" parent="UI" index="4"]
+visible = false
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -95.0
+margin_top = -20.0
+margin_right = -40.0
+margin_bottom = -2.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Copyright" type="Label" parent="MarginContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 96.0
+margin_bottom = 24.0
+text = "By: PistachoDuck"
+
+[node name="Room" type="Sprite" parent="."]
+position = Vector2( 31, 91 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="tileInvinsible" parent="." instance=ExtResource( 5 )]
+tile_data = PoolIntArray( 1441799, 0, 0, 1441800, 0, 0, 1441801, 0, 0, 1441802, 0, 0, 1441803, 0, 0, 1441804, 0, 0, 1441805, 0, 0, 1441806, 0, 0, 1441807, 0, 0, 1441808, 0, 0, 1441809, 0, 0, 1441810, 0, 0, 1441811, 0, 0, 1441812, 0, 0, 1441813, 0, 0, 1441814, 0, 0, 1441815, 0, 0, 1441816, 0, 0, 1441817, 0, 0, 1441818, 0, 0, 1441819, 0, 0, 1441820, 0, 0, 1441821, 0, 0, 1441822, 0, 0, 1441823, 0, 0, 1441824, 0, 0, 1507335, 0, 0, 1572871, 0, 0, 1638407, 0, 0, 1703943, 0, 0, 1769479, 0, 0, 1769496, 0, 0, 1769497, 0, 0, 1769498, 0, 0, 1769499, 0, 0, 1769500, 0, 0, 1769501, 0, 0, 1769502, 0, 0, 1769503, 0, 0, 1769504, 0, 0, 1835015, 0, 0, 1835032, 0, 0, 1900551, 0, 0, 1900552, 0, 0, 1900553, 0, 0, 1900554, 0, 0, 1900555, 0, 0, 1900556, 0, 0, 1900557, 0, 0, 1900558, 0, 0, 1900559, 0, 0, 1900560, 0, 0, 1900561, 0, 0, 1900562, 0, 0, 1900563, 0, 0, 1900564, 0, 0, 1900565, 0, 0, 1900566, 0, 0, 1900567, 0, 0, 1900568, 0, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 40, 116 )
+
+[node name="Buttons" type="Node2D" parent="."]
+
+[node name="buttonAnimator" type="AnimationPlayer" parent="Buttons"]
+autoplay = "animate"
+anims/animate = SubResource( 1 )
+anims/start_game = SubResource( 2 )
+
+[node name="arrow_up" type="Sprite" parent="Buttons"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 23, 31 )
+texture = ExtResource( 8 )
+hframes = 2
+
+[node name="arrow_down" type="Sprite" parent="Buttons"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 23, 59 )
+texture = ExtResource( 12 )
+hframes = 2
+
+[node name="arrow_left" type="Sprite" parent="Buttons"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 10, 47 )
+texture = ExtResource( 9 )
+flip_h = true
+hframes = 2
+
+[node name="arrow_right" type="Sprite" parent="Buttons"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 37, 47 )
+texture = ExtResource( 9 )
+hframes = 2
+
+[node name="button_a" type="Sprite" parent="Buttons"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 128, 46 )
+texture = ExtResource( 7 )
+hframes = 2
+
+[node name="button_b" type="Sprite" parent="Buttons"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 139, 34 )
+texture = ExtResource( 7 )
+hframes = 2
+
+[node name="button_x" type="Sprite" parent="Buttons"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 116, 35 )
+texture = ExtResource( 7 )
+hframes = 2
+
+[node name="button_y" type="Sprite" parent="Buttons"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 127, 23 )
+texture = ExtResource( 7 )
+hframes = 2
+
+[node name="key_k" type="Sprite" parent="Buttons"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 121, 70 )
+texture = ExtResource( 11 )
+hframes = 2
+
+[node name="key_l" type="Sprite" parent="Buttons"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 137, 70 )
+texture = ExtResource( 10 )
+hframes = 2
+
+[node name="controllerSeparator" type="Line2D" parent="Buttons"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 112, 64 )
+points = PoolVector2Array( 37, -5, -2, -5 )
+width = 1.0
+default_color = Color( 1, 1, 1, 1 )
+
+[node name="label_w" type="Label" parent="Buttons"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 16.0
+margin_top = 13.0
+margin_right = 32.0
+margin_bottom = 37.0
+text = "W"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label_a" type="Label" parent="Buttons"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -3.0
+margin_top = 36.0
+margin_right = 11.0
+margin_bottom = 60.0
+text = "A"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label_s" type="Label" parent="Buttons"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 17.0
+margin_top = 57.0
+margin_right = 31.0
+margin_bottom = 81.0
+text = "S"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label_d" type="Label" parent="Buttons"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 37.0
+margin_top = 35.0
+margin_right = 51.0
+margin_bottom = 59.0
+text = "D"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+position = Vector2( 128, 100 )
+collision_layer = 0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+shape = SubResource( 3 )
+
+[node name="enemyRock" parent="." instance=ExtResource( 6 )]
+position = Vector2( 106, 100 )
+
+[node name="Sprite" parent="enemyRock" index="0"]
+material = SubResource( 5 )
+
+[node name="Border" type="Sprite" parent="enemyRock"]
+modulate = Color( 1, 1, 1, 0.392157 )
+material = SubResource( 7 )
+texture = ExtResource( 15 )
+
+[node name="borderAnimator" type="AnimationPlayer" parent="enemyRock"]
+autoplay = "animate"
+anims/animate = SubResource( 8 )
+
+[node name="Logo" type="Sprite" parent="."]
+position = Vector2( 56, 24 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="transitionSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]
+
+[editable path="UI"]
+[editable path="Player"]
+[editable path="Player/HurtBox"]
+[editable path="enemyRock"]
+[editable path="enemyRock/HurtBox"]
+[editable path="enemyRock/HitBox"]

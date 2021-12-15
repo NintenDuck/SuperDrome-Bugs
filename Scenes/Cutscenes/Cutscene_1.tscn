@@ -1,0 +1,265 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Sprites/Cutscenes/cutscene_intro_1.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Cutscenes/cutscene_intro_3.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Cutscenes/cutscene_intro_4.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Cutscenes/cutscene_intro_2.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Cutscenes/Cutscene_1.gd" type="Script" id=5]
+[ext_resource path="res://Levels/LevelTransition.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Music/Sfx/TelephoneRing.wav" type="AudioStream" id=7]
+[ext_resource path="res://Music/Sfx/Voice.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Music/Sfx/step_sfx.wav" type="AudioStream" id=9]
+[ext_resource path="res://Music/Sfx/steps.wav" type="AudioStream" id=10]
+
+[sub_resource type="Animation" id=1]
+resource_name = "cutscene_1"
+length = 18.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("scene_1:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -77, 0 ), Vector2( -77, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("scene_1:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("scene_2:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 4.06, 4.56 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 152, 72 ), Vector2( 152, 72 ), Vector2( -1, 72 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("scene_2:rotation_degrees")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 4.06, 4.56 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("scene_3:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 7.7, 8.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 152 ), Vector2( 0, 152 ), Vector2( 0, 109 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("scene_3:rotation_degrees")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 7.7, 8.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("scene_4:position")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 11.2, 14.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 72, -152 ), Vector2( 72, -152 ), Vector2( 72, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("scene_4:rotation_degrees")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 11.2, 14.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 0.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("SFX/voice:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 2.26, 4.76, 6.46 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true, false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("SFX/ring:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 1.3, 1.42, 1.54, 1.66, 1.78, 1.9, 2.02, 2.14 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, true, true, true, true, true, true ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("SFX/step:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 11.2, 11.5, 11.75, 12, 12.3, 12.55, 12.85, 13.1, 13.35, 13.65, 13.9, 14.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, true, true, true, true, true, true, true, true, true, false ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("SFX/transition:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 8, 9.1, 16.15, 17.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false, true, false ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("SFX/ring:volume_db")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -5.0 ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Transition:material:shader_param/progress")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 0.9, 16.15, 17.35 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0, 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "skip_cutscene"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Transition:material:shader_param/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
+}
+
+[node name="Node2D" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="scene_1" type="Sprite" parent="."]
+position = Vector2( -77, 0 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="scene_2" type="Sprite" parent="."]
+position = Vector2( 152, 72 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="scene_3" type="Sprite" parent="."]
+position = Vector2( 0, 152 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="scene_4" type="Sprite" parent="."]
+position = Vector2( 72, -152 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="cutsceneAnimator" type="AnimationPlayer" parent="."]
+autoplay = "cutscene_1"
+anims/cutscene_1 = SubResource( 1 )
+anims/skip_cutscene = SubResource( 2 )
+
+[node name="Transition" parent="." instance=ExtResource( 6 )]
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="voice" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 8 )
+volume_db = 5.0
+
+[node name="ring" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 7 )
+volume_db = -5.0
+
+[node name="step" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 9 )
+
+[node name="transition" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 10 )
+volume_db = 5.0
+
+[connection signal="animation_finished" from="cutsceneAnimator" to="." method="_on_cutsceneAnimator_animation_finished"]

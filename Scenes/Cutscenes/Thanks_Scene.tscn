@@ -1,0 +1,305 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://UI/themeDefault.tres" type="Theme" id=1]
+[ext_resource path="res://Music/Music/Credits_Music.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Scenes/Enemies/enemyCricket.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Tilesets/tileInvinsible.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Cutscenes/Thanks_Scene.gd" type="Script" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "animate"
+length = 41.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Credits/Category:rect_position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 7, 7.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 152, 0 ), Vector2( 152, 0 ), Vector2( 10, 24 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Credits/Category2:rect_position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 13.2, 14.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 152, 42 ), Vector2( 152, 42 ), Vector2( 38, 21 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Credits/Category3:rect_position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 25, 26 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 152, 63 ), Vector2( 152, 63 ), Vector2( 57, 19 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Credits/PistachoLLabel:rect_position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 8.1, 8.5, 14, 14.1, 16, 17, 24.2, 24.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -90, 54 ), Vector2( -90, 54 ), Vector2( 35, 71 ), Vector2( 35, 71 ), Vector2( -90, 54 ), Vector2( -90, 54 ), Vector2( 36, 43 ), Vector2( 36, 43 ), Vector2( 25, -17 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Credits/IscMallocLabel:rect_position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 16.7, 17.8, 22, 24, 24.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 194, 63 ), Vector2( 194, 63 ), Vector2( 47, 60 ), Vector2( 47, 60 ), Vector2( 47, 76 ), Vector2( 45, 43 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Credits/Category:percent_visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 10.5, 11 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 0.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Credits/PistachoLLabel:percent_visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 10.5, 11.7, 14.2, 14.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 0.0, 0.0, 1.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Credits/Category2:percent_visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 20, 21 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 0.0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Credits/Category3:percent_visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 28, 30.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 0.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Credits/IscMallocLabel:percent_visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 28, 30.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 0.0 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Music:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/12/type = "method"
+tracks/12/path = NodePath("Music")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 37 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop"
+} ]
+}
+tracks/13/type = "method"
+tracks/13/path = NodePath(".")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 1, 41 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "activate_skip"
+}, {
+"args": [  ],
+"method": "go_to_main_menu"
+} ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("CenterContainer/Bye:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 31.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[node name="Thanks_Scene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="creditsAnimator" type="AnimationPlayer" parent="."]
+autoplay = "animate"
+anims/animate = SubResource( 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bye" type="Label" parent="CenterContainer"]
+visible = false
+margin_left = 28.0
+margin_top = 54.0
+margin_right = 124.0
+margin_bottom = 97.0
+text = "SEE YOU IN THE 
+NEXT GAME!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CenterContainer"]
+visible = false
+margin_left = 16.0
+margin_top = 64.0
+margin_right = 136.0
+margin_bottom = 88.0
+text = "THANKS FOR PLAYING!"
+
+[node name="Credits" type="Node2D" parent="."]
+
+[node name="Category" type="Label" parent="Credits"]
+margin_left = 152.0
+margin_right = 287.001
+margin_bottom = 43.0
+text = "Programming, Graphics 
+and Direction"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Category2" type="Label" parent="Credits"]
+margin_left = 152.0
+margin_top = 42.0
+margin_right = 233.0
+margin_bottom = 66.0005
+text = "Audio and SFX"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Category3" type="Label" parent="Credits"]
+margin_left = 152.0
+margin_top = 63.0
+margin_right = 189.0
+margin_bottom = 87.0001
+text = "Music"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PistachoLLabel" type="Label" parent="Credits"]
+modulate = Color( 0.792157, 0.996078, 0.392157, 1 )
+margin_left = -90.0
+margin_top = 54.0
+margin_right = -10.0
+margin_bottom = 96.9999
+text = "PISTACHODUCK"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IscMallocLabel" type="Label" parent="Credits"]
+modulate = Color( 1, 0.396078, 0.396078, 1 )
+margin_left = 194.0
+margin_top = 63.0
+margin_right = 257.0
+margin_bottom = 87.0001
+text = "ISCMALLOC"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
+[node name="enemyCricket" parent="." instance=ExtResource( 3 )]
+position = Vector2( -409, 152 )
+currentDirection = 1
+randomJumpTime = false
+
+[node name="tileInvinsible" parent="." instance=ExtResource( 4 )]
+tile_data = PoolIntArray( 2555756, 0, 0, 2555757, 0, 0, 2555758, 0, 0, 2555759, 0, 0, 2555760, 0, 0, 2555761, 0, 0, 2555762, 0, 0, 2555763, 0, 0, 2555764, 0, 0, 2555765, 0, 0, 2555766, 0, 0, 2555767, 0, 0, 2555768, 0, 0, 2555769, 0, 0, 2555770, 0, 0, 2555771, 0, 0, 2555772, 0, 0, 2555773, 0, 0, 2555774, 0, 0, 2555775, 0, 0, 2555776, 0, 0, 2555777, 0, 0, 2555778, 0, 0, 2555779, 0, 0, 2555780, 0, 0, 2555781, 0, 0, 2555782, 0, 0, 2555783, 0, 0, 2555784, 0, 0, 2555785, 0, 0, 2555786, 0, 0, 2555787, 0, 0, 2555788, 0, 0, 2555789, 0, 0, 2555790, 0, 0, 2555791, 0, 0, 2555792, 0, 0, 2555793, 0, 0, 2555794, 0, 0, 2555795, 0, 0, 2555796, 0, 0, 2555797, 0, 0, 2555798, 0, 0, 2555799, 0, 0, 2555800, 0, 0, 2555801, 0, 0, 2555802, 0, 0, 2555803, 0, 0, 2555804, 0, 0, 2555805, 0, 0, 2555806, 0, 0, 2555807, 0, 0, 2555808, 0, 0, 2555809, 0, 0, 2555810, 0, 0, 2555811, 0, 0, 2555812, 0, 0, 2555813, 0, 0, 2555814, 0, 0, 2555815, 0, 0, 2555816, 0, 0, 2555817, 0, 0, 2555818, 0, 0, 2555819, 0, 0, 2555820, 0, 0, 2555821, 0, 0, 2555822, 0, 0, 2555823, 0, 0, 2555824, 0, 0, 2555825, 0, 0, 2555826, 0, 0, 2555827, 0, 0, 2555828, 0, 0, 2555829, 0, 0, 2555830, 0, 0, 2555831, 0, 0, 2555832, 0, 0, 2555833, 0, 0, 2555834, 0, 0, 2555835, 0, 0, 2555836, 0, 0, 2555837, 0, 0, 2555838, 0, 0, 2555839, 0, 0, 2555840, 0, 0, 2555841, 0, 0, 2555842, 0, 0, 2555843, 0, 0, 2555844, 0, 0, 2555845, 0, 0, 2555846, 0, 0, 2555847, 0, 0, 2555848, 0, 0, 2555849, 0, 0, 2555850, 0, 0, 2555851, 0, 0, 2555852, 0, 0, 2555853, 0, 0, 2555854, 0, 0, 2555855, 0, 0, 2555856, 0, 0, 2555857, 0, 0, 2555858, 0, 0, 2555859, 0, 0, 2555860, 0, 0, 2555861, 0, 0, 2555862, 0, 0, 2555863, 0, 0, 2555864, 0, 0, 2555865, 0, 0, 2555866, 0, 0, 2555867, 0, 0, 2555868, 0, 0, 2555869, 0, 0, 2555870, 0, 0, 2555871, 0, 0, 2555872, 0, 0, 2555873, 0, 0, 2555874, 0, 0, 2555875, 0, 0, 2555876, 0, 0, 2555877, 0, 0, 2555878, 0, 0, 2555879, 0, 0, 2555880, 0, 0, 2555881, 0, 0, 2555882, 0, 0, 2555883, 0, 0, 2555884, 0, 0, 2555885, 0, 0, 2555886, 0, 0, 2555887, 0, 0, 2555888, 0, 0, 2555889, 0, 0, 2555890, 0, 0, 2555891, 0, 0, 2555892, 0, 0, 2555893, 0, 0, 2555894, 0, 0, 2555895, 0, 0, 2555896, 0, 0, 2555897, 0, 0, 2555898, 0, 0, 2555899, 0, 0, 2555900, 0, 0, 2555901, 0, 0, 2555902, 0, 0, 2555903, 0, 0, 2490368, 0, 0, 2490369, 0, 0, 2490370, 0, 0, 2490371, 0, 0, 2490372, 0, 0, 2490373, 0, 0, 2490374, 0, 0, 2490375, 0, 0, 2490376, 0, 0, 2490377, 0, 0, 2490378, 0, 0, 2490379, 0, 0, 2490380, 0, 0, 2490381, 0, 0, 2490382, 0, 0, 2490383, 0, 0, 2490384, 0, 0, 2490385, 0, 0, 2490386, 0, 0, 2490387, 0, 0, 2490388, 0, 0, 2490389, 0, 0, 2490390, 0, 0, 2490391, 0, 0, 2490392, 0, 0, 2490393, 0, 0, 2490394, 0, 0, 2490395, 0, 0, 2490396, 0, 0, 2490397, 0, 0, 2490398, 0, 0, 2490399, 0, 0, 2490400, 0, 0, 2490401, 0, 0, 2490402, 0, 0, 2490403, 0, 0, 2490404, 0, 0, 2490405, 0, 0, 2490406, 0, 0, 2490407, 0, 0, 2490408, 0, 0, 2490409, 0, 0, 2490410, 0, 0, 2490411, 0, 0, 2490412, 0, 0, 2490413, 0, 0, 2490414, 0, 0, 2490415, 0, 0, 2490416, 0, 0, 2490417, 0, 0, 2490418, 0, 0, 2490419, 0, 0, 2490420, 0, 0, 2490421, 0, 0, 2490422, 0, 0, 2490423, 0, 0, 2490424, 0, 0, 2490425, 0, 0, 2490426, 0, 0, 2490427, 0, 0, 2490428, 0, 0, 2490429, 0, 0, 2490430, 0, 0 )
