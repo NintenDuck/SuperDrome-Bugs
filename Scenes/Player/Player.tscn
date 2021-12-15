@@ -199,8 +199,7 @@ position = Vector2( 0, -3 )
 shape = SubResource( 8 )
 
 [node name="bulletInitPos" type="Position2D" parent="."]
-visible = false
-position = Vector2( 5, -3 )
+position = Vector2( 4, -3 )
 
 [node name="Sprite" type="Sprite" parent="bulletInitPos"]
 visible = false

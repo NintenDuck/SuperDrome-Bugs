@@ -19,7 +19,7 @@ var sounds = {
 	"BossHitGround": load(sfx_path + "boss_hit_ground.wav"),
 	"BossJump": load(sfx_path + "boss_jump.wav"),
 	"Voice": load(sfx_path + "Voice.ogg"),
-	"Ring": load(sfx_path + "TelephoneRing.wav"),
+#	"Ring": load(sfx_path + "TelephoneRing.wav"),
 	"Trampoline": load(sfx_path + "trampoline.wav"),
 	"Button": load(sfx_path + "button.wav")
 }
