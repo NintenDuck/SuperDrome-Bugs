@@ -22,7 +22,7 @@ shader_param/hit_color = Color( 1, 0, 0, 1 )
 shader_param/hit_strength = 0.0
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 7, 8 )
+extents = Vector2( 5, 7 )
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 8, 7 )
@@ -36,11 +36,7 @@ material = SubResource( 6 )
 texture = ExtResource( 2 )
 
 [node name="collision" parent="." index="1"]
-visible = false
 shape = SubResource( 7 )
-
-[node name="HurtBox" parent="." index="4"]
-visible = false
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 shape = SubResource( 8 )

@@ -545,6 +545,9 @@ tile_data = PoolIntArray( 1441799, 0, 0, 1441800, 0, 0, 1441801, 0, 0, 1441802, 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 40, 116 )
 
+[node name="sprite" parent="Player" index="0"]
+frame = 10
+
 [node name="Buttons" type="Node2D" parent="."]
 
 [node name="buttonAnimator" type="AnimationPlayer" parent="Buttons"]
